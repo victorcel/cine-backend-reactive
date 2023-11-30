@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Table("movies")
@@ -48,13 +49,13 @@ public class Movie implements Persistable<UUID> {
     private String prices;
 
     @NotNull
-    private String schedules;
-
-    @NotNull
     private String released;
 
     @NotNull
     private String imdbRating;
+
+    @NotNull
+    private LocalDate createdAt;
 
     @Transient
     @JsonIgnore

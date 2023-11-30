@@ -10,6 +10,7 @@ import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +37,9 @@ public class ShowTime implements Persistable<UUID> {
 
     @NotNull
     private BigDecimal prices;
+
+    @NotNull
+    private LocalDate createdAt;
 
     @Transient
     @JsonIgnore
