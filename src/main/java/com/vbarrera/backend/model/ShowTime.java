@@ -33,10 +33,10 @@ public class ShowTime implements Persistable<UUID> {
     private String dayOfWeek;
 
     @NotNull
-    private List<String> showtimes;
+    private String time;
 
     @NotNull
-    private BigDecimal prices;
+    private BigDecimal price;
 
     @NotNull
     private LocalDate createdAt;

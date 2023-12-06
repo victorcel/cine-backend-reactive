@@ -26,11 +26,11 @@ public class MovieService {
 
     private final MovieRepository movieRepository;
 
-    public Flux<Movie> findAll() {
+    public Flux<Movie> getAllMoviesRoute() {
         return movieRepository.findAll();
     }
 
-    public Mono<Movie> getById(UUID id) {
+    public Mono<Movie> getMovieById(UUID id) {
         return movieRepository.findById(id)
                 .switchIfEmpty(Mono.error(() -> new MovieNotFoundException(id)));
     }

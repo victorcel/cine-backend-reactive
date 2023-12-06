@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -34,7 +35,7 @@ public class Movie implements Persistable<UUID> {
     private String genre;
 
     @NotNull
-    private String year;
+    private BigDecimal year;
 
     @NotNull
     private String description;
@@ -46,7 +47,7 @@ public class Movie implements Persistable<UUID> {
     private String language;
 
     @NotNull
-    private String prices;
+    private BigDecimal prices;
 
     @NotNull
     private String released;

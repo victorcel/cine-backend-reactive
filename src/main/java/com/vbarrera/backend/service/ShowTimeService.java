@@ -24,9 +24,13 @@ public class ShowTimeService {
         return showTimeRepository.findById(id);
     }
 
-    public Mono<ShowTime> createShowTime(ShowTime showTime, UUID movieId) {
+    public Mono<ShowTime> assignMovieToShowTime(ShowTime showTime, UUID movieId) {
         showTime.setNewObj(true);
+        showTime.setId(UUID.randomUUID());
         showTime.setMovieId(movieId);
+        showTime.setDayOfWeek(showTime.getDayOfWeek());
+        showTime.setTime(showTime.getTime());
+        showTime.setPrice(showTime.getPrice());
         showTime.setCreatedAt(LocalDate.now());
         return showTimeRepository.save(showTime);
     }
