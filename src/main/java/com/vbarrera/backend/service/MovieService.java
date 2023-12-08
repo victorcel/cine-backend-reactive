@@ -26,8 +26,8 @@ public class MovieService {
 
     private final MovieRepository movieRepository;
 
-    public Flux<Movie> getAllMoviesRoute() {
-        return movieRepository.findAll();
+    public Mono<List<Movie>> getAllMoviesRoute() {
+        return movieRepository.findAll().collectList();
     }
 
     public Mono<Movie> getMovieById(UUID id) {
