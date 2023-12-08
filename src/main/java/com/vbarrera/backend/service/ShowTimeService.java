@@ -8,6 +8,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -16,8 +17,9 @@ public class ShowTimeService {
 
     private final ShowTimeRepository showTimeRepository;
 
-    public Flux<ShowTime> getAllShowTimes() {
-        return showTimeRepository.findAll();
+    public Mono<List<ShowTime>> getAllShowTimes() {
+
+        return showTimeRepository.findAll().collectList();
     }
 
     public Mono<ShowTime> getShowTimeById(UUID id) {
