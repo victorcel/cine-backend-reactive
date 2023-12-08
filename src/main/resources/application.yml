@@ -3,8 +3,6 @@ spring:
     name: cine-backend-reactive
   r2dbc:
     url: r2dbc:h2:mem:///cinemas;DB_CLOSE_DELAY=-1
-    username: sa
-    password:
   flyway:
     url: jdbc:h2:mem:cinemas;DB_CLOSE_DELAY=-1
     locations: classpath:db/h2/migration
