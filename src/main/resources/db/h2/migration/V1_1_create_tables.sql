@@ -11,7 +11,7 @@ CREATE TABLE movies
     prices      int           not null,
     released    varchar(100)  not null,
     imdb_rating  varchar(100)  not null,
-    createdAt   timestamp     not null,
+    createdAt   timestamp     not null
 );
 
 CREATE TABLE showtime
@@ -21,7 +21,7 @@ CREATE TABLE showtime
     day_of_week varchar(100) NOT NULL,
     showtime  varchar(100) NOT NULL,
     price     int          NOT NULL,
-    created_at timestamp    NOT NULL,
+    created_at timestamp    NOT NULL
 )
 
 ALTER TABLE showtime ADD PRIMARY KEY (id);

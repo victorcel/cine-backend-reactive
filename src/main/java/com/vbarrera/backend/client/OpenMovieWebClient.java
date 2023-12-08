@@ -11,25 +11,23 @@ import reactor.core.publisher.Mono;
 public class OpenMovieWebClient implements OpenMovieClient{
 
     @Value("${credentials.key-movies}")
-    private static String key;
+    private String key;
 
-    private static final String CURRENCY_URL = String.format("http://www.omdbapi.com/?apikey=%s&i=",key);
+    private static final String HOST_URL = "https://www.omdbapi.com";
 
     private static final WebClient webClient;
 
     static {
-        webClient = WebClient.create(CURRENCY_URL);
+        webClient = WebClient.create(HOST_URL);
     }
 
 
     @Override
-    public OpenMovieModel getMovie(String title) {
+    public Mono<OpenMovieModel> getMovie(String imdbID) {
         return webClient
                 .get()
-                .uri(title)
-                .exchangeToMono(OpenMovieWebClient::handleResponse)
-                .share()
-                .block();
+                .uri(String.format("/?apikey=%s&i=%s", key, imdbID))
+                .exchangeToMono(OpenMovieWebClient::handleResponse);
     }
 
     private static Mono<OpenMovieModel> handleResponse(ClientResponse resp) {
